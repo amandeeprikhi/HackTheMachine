@@ -1,0 +1,149 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "alpha store",
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "WelcomeIntent",
+          "slots": [],
+          "samples": []
+        },
+        {
+          "name": "DealIntent",
+          "slots": [],
+          "samples": [
+            "check deal of the day",
+            "get me the best deal",
+            "what's the best deal today",
+            "what's the deal of the day"
+          ]
+        },
+        {
+          "name": "ProductIntent",
+          "slots": [],
+          "samples": [
+            "which products you have",
+            "tell me about your products",
+            "what products you have",
+            "show me all products"
+          ]
+        },
+        {
+          "name": "ConfirmIntent",
+          "slots": [
+            {
+              "name": "confirmSlot",
+              "type": "confirmSlot"
+            }
+          ],
+          "samples": [
+            "{confirmSlot}"
+          ]
+        },
+        {
+          "name": "BuyIntent",
+          "slots": [
+            {
+              "name": "buySlot",
+              "type": "buySlot"
+            }
+          ],
+          "samples": [
+            "buy {buySlot}",
+            "place an order for {buySlot}",
+            "order me {buySlot}",
+            "i want to buy {buySlot}",
+            "buy me {buySlot}",
+            "get me {buySlot}"
+          ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": [
+            "yes"
+          ]
+        },
+        {
+          "name": "QuantityIntent",
+          "slots": [
+            {
+              "name": "quantitySlot",
+              "type": "quantitySlot"
+            }
+          ],
+          "samples": [
+            "{quantitySlot}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "no"
+              }
+            },
+            {
+              "name": {
+                "value": "yes"
+              }
+            }
+          ],
+          "name": "confirmSlot"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "samsung"
+              }
+            },
+            {
+              "name": {
+                "value": "test product"
+              }
+            }
+          ],
+          "name": "buySlot"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "two"
+              }
+            },
+            {
+              "name": {
+                "value": "2"
+              }
+            }
+          ],
+          "name": "quantitySlot"
+        }
+      ]
+    }
+  },
+  "version": "31"
+}

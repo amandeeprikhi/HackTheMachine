@@ -1,0 +1,33 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.e847c4ff-78a0-425c-8c24-79e0e803d587",
+      "was_cloned": true,
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "be1c1d3823bb2dfe9127da3e7a6e4575"
+        },
+        "interactionModel": {
+          "en-GB": {
+            "eTag": "50811f5823e518aa012a8a2df2f90107"
+          }
+        },
+        "lambda": [
+          {
+            "arn": "arn:aws:lambda:us-east-1:704492628385:function:cyberGroup",
+            "awsRegion": "us-east-1",
+            "functionName": "cyberGroup",
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "revisionId": "76e099be-9840-4476-b9f5-8e5292a209f4",
+            "codeUri": "lambda/us-east-1_cyberGroup",
+            "handler": "index.handler",
+            "runtime": "nodejs6.10"
+          }
+        ]
+      }
+    }
+  }
+}
