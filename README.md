@@ -19,11 +19,11 @@ This project uses Alexa voice UI and using voice commands enables the user to ma
 
 - Technology Stack
     - Node.js for Lambda function
-        **Why:** Familiarity of team members with basic javascript then C#.
+        - **Why:** Familiarity of team members with basic javascript then C#.
     - AWS Lambda for code hosting
-        **Why:** Easier to deploy Alexa skills as end point implementation is simple.
+        - **Why:** Easier to deploy Alexa skills as end point implementation is simple.
     - AWS DynamoDB for storing data.
-        **Why:** Native support in Node.js and AWS Lambda to interact with DynamoDB
+        - **Why:** Native support in Node.js and AWS Lambda to interact with DynamoDB
     - ASK-CLI for deoployment and development
-        **Why:** Official CLI for deployments
+        - **Why:** Official CLI for deployments
 
