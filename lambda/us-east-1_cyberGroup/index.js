@@ -10,7 +10,6 @@ const APP_ID = 'amzn1.ask.skill.dff0f2da-547a-49d2-b1b9-946ead0bcea8';
 // Just a string constant
 const ask_message = "What would you like to do?";
 
-var testing;
 var buyItem;
 var buyItemValue;
 var checkoutFlow = 0;
@@ -18,53 +17,6 @@ var checkoutFlow = 0;
 // Defining all the handlers here
 const handlers = {
     'LaunchRequest': function () {
-        // attributes that act as session storage
-        // this.attributes.store = {
-        //     'strings':{
-        //       'welcomeOption': 'Would you like to check deal of the day? Or should I tell you about our products?',
-        //     },
-        //     'dealOfDay':{
-        //       'speakOuput': 'Okay. Today\'s deal is $25 off on S Buds wireless bluetooth earbuds. Do you want to Buy it?',
-        //       'dealProductName': 'SoftWidget S Buds Wireless Bluetooth Earbuds',
-        //       'dealProductDesc': 'SoftWidget S Buds Wireless Bluetooth Earbuds + Charging Case Black, IP55 SweatResistance, Bluetooth 5.0 Connection  and 3 EQ Sound Settings.'
-        //     },
-        //     'products':{
-        //         'Product1':{
-        //             'number': 'Number one',
-        //             'name': 'SoftWidget Ultra Charge Bluetooth Speaker.',
-        //             'desc': 'SoftWidget Ultra Charge Bluetooth Speaker comes with Loud Stereo Sound, Rich Bass, 24-HourPlaytime, 66 ft Bluetooth Range, Built-in Mic. Perfect Portable WirelessSpeaker for iPhone, Samsung, and More',
-        //             'price': 30
-        //         },
-        //         'Product2':{
-        //             'number': 'Number two',
-        //             'name': 'SoftWidget S Buds Wireless Bluetooth Earbuds.',
-        //             'desc': 'SoftWidget S Buds Wireless Bluetooth Earbuds + Charging Case Black, IP55 SweatResistance, Bluetooth 5.0 Connection  and 3 EQ Sound Settings',
-        //             'price': 35
-        //         },
-        //         'Product3':{
-        //             'number': 'Number three',
-        //             'name': 'SoftWidget Wake-Up Light with Alarm Clock.',
-        //             'desc': 'This product doesn\'t have a description.',
-        //             'price': 65
-        //         }
-        //     },
-        //     'buyflow':0,
-        //     'dealbuy':0
-        // };
-        // this.attributes.store.checkoutFlow = 0;
-        // this.attributes.cart={
-        //   'items': '.',
-        //   'value': 0
-        // };
-        // .listen() makes for a continous dialogue
-        let i = '';
-        // let attrLentgh = Object.keys(this.attributes.store.products).length;
-        // let testingLoop = this.attributes.store.products;
-        // for(let key in testingLoop){
-        //   if(testingLoop.hasOwnProperty(key)){
-        //     i = i + " " + testingLoop[key].name;
-        //   }
-        // }
         if (this.attributes.cart.items != ".") {
             this.emit('CheckoutIntent');
         }
@@ -156,24 +108,6 @@ const handlers = {
                 this.response.speak("Alright, what else would you like to buy?").listen("Please confirm.");
             }
         }
-        // if(dealbuy == 2){
-        //   if(input == 'yes'){
-        //     this.response.speak("Alright, should I finalize your order for " + this.attributes.store.dealOfDay.dealProductName + ", with a total cost of $10?").listen("Testing");
-        //     this.attributes.store.dealbuy++;
-        //   }
-        //   if(input == 'no'){
-        //     this.response.speak("Alright, what else would you like to buy?").listen("Testing");
-        //   }
-        // }
-        // if(dealbuy == 3){
-        //   if(input == 'yes'){
-        //     this.response.speak("Alright, an order has been placed for " + this.attributes.store.dealOfDay.dealProductName).listen("Testing");
-        //     this.attributes.store.dealbuy = 0;
-        //   }
-        //   if(input == 'no'){
-        //     this.response.speak("Alright, what else would you like to buy?").listen("Testing");
-        //   }
-        // }
         if (buyFlowStep == 1 && dealbuy == 0 && checkoutFlow == 0) {
             if (input == 'yes') {
                 this.response.speak("Alright, " + buyItem + " has been added to your cart. Do you want to buy something else or you want to checkout?").listen("Please let me know your choice.");
@@ -191,36 +125,35 @@ const handlers = {
             if (input == 'yes') {
                 this.response.speak("Order complete, we'll send a confirmation by e-mail").listen("Anything else I can help you with?");
                 checkoutFlow = 0;
-                this.attributes.cart.items = '';
+                this.attributes.cart.items = ".";
                 this.attributes.cart.value = 0;
+                // this.emit(':saveState', true);
             }
             if (input == 'no') {
                 this.response.speak("Alright, what else would you like to buy?").listen("Would you like to browse our product's catalogue?");
                 checkoutFlow = 0;
-                this.attributes.cart.items = '';
-                this.attributes.cart.value = 0;
             }
         }
         this.emit(':responseReady');
     },
-    // 'QuantityIntent': function(){
-    //     let input = this.event.request.intent.slots.quantitySlot.value;
-    //     this.response.speak("Do you want to buy " + input + " " + testing + "?").listen("Testing");
-    //     this.attributes.store.buyflow++;
-    //     this.emit(':responseReady');
-    // },
     'CheckoutIntent': function () {
         this.response.speak("Your cart contains " + this.attributes.cart.items + ". The order total is $" + this.attributes.cart.value + ". Would you like to place the order?").listen("Please confirm your order?");
         this.attributes.store.checkoutFlow = 1;
         this.attributes.store.buyflow = 0;
         this.emit(':responseReady');
     },
-    // 'SaveIntent': function(){
-    //   this.emit(':saveState', true)
-    // },
     'SessionEndedRequest': function () {
         this.response.speak("Thank you for shopping at Soft Widget Alpha Store.");
         this.emit(':saveState', true);
+    },
+    'ClearIntent': function () {
+        this.response.speak("Your cart has been cleared. What would you like to do next?").listen("Please let me know what would you want to do?");
+        this.attributes.cart.items = ".";
+        this.attributes.cart.value = 0;
+        this.attributes.store.buyflow = 0;
+        this.attributes.store.checkoutFlow = 0;
+        this.attributes.store.dealbuy = 0;
+        this.emit(':responseReady');
     },
     'AMAZON.StopIntent': function () {
         this.emit(':saveState', true);

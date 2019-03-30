@@ -1,149 +1,214 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "alpha store",
-      "intents": [
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
-        },
-        {
-          "name": "WelcomeIntent",
-          "slots": [],
-          "samples": []
-        },
-        {
-          "name": "DealIntent",
-          "slots": [],
-          "samples": [
-            "check deal of the day",
-            "get me the best deal",
-            "what's the best deal today",
-            "what's the deal of the day"
-          ]
-        },
-        {
-          "name": "ProductIntent",
-          "slots": [],
-          "samples": [
-            "which products you have",
-            "tell me about your products",
-            "what products you have",
-            "show me all products"
-          ]
-        },
-        {
-          "name": "ConfirmIntent",
-          "slots": [
-            {
-              "name": "confirmSlot",
-              "type": "confirmSlot"
-            }
-          ],
-          "samples": [
-            "{confirmSlot}"
-          ]
-        },
-        {
-          "name": "BuyIntent",
-          "slots": [
-            {
-              "name": "buySlot",
-              "type": "buySlot"
-            }
-          ],
-          "samples": [
-            "buy {buySlot}",
-            "place an order for {buySlot}",
-            "order me {buySlot}",
-            "i want to buy {buySlot}",
-            "buy me {buySlot}",
-            "get me {buySlot}"
-          ]
-        },
-        {
-          "name": "AMAZON.YesIntent",
-          "samples": [
-            "yes"
-          ]
-        },
-        {
-          "name": "QuantityIntent",
-          "slots": [
-            {
-              "name": "quantitySlot",
-              "type": "quantitySlot"
-            }
-          ],
-          "samples": [
-            "{quantitySlot}"
-          ]
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "alpha store",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "WelcomeIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "DealIntent",
+                    "slots": [],
+                    "samples": [
+                        "deal of the day",
+                        "check deal of the day",
+                        "get me the best deal",
+                        "what's the best deal today",
+                        "what's the deal of the day"
+                    ]
+                },
+                {
+                    "name": "ProductIntent",
+                    "slots": [],
+                    "samples": [
+                        "show the products",
+                        "products you offer",
+                        "buy more",
+                        "show me the catalogue",
+                        "which products you have",
+                        "tell me about your products",
+                        "what products you have",
+                        "show me all products"
+                    ]
+                },
+                {
+                    "name": "ConfirmIntent",
+                    "slots": [
+                        {
+                            "name": "confirmSlot",
+                            "type": "confirmSlot"
+                        }
+                    ],
+                    "samples": [
+                        "{confirmSlot} let's buy it",
+                        "{confirmSlot}"
+                    ]
+                },
+                {
+                    "name": "BuyIntent",
+                    "slots": [
+                        {
+                            "name": "buySlot",
+                            "type": "buySlot"
+                        }
+                    ],
+                    "samples": [
+                        "buy {buySlot}",
+                        "place an order for {buySlot}",
+                        "order me {buySlot}",
+                        "i want to buy {buySlot}",
+                        "buy me {buySlot}",
+                        "get me {buySlot}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": [
+                        "yes"
+                    ]
+                },
+                {
+                    "name": "QuantityIntent",
+                    "slots": [
+                      {
+                        "name": "quantitySlot",
+                        "type": "quantitySlot"
+                      }
+                    ],
+                    "samples": [
+                        "{quantitySlot}"
+                    ]
+                },
+                {
+                    "name": "CheckoutIntent",
+                    "slots": [],
+                    "samples": [
+                        "i want to checkout",
+                        "checkout"
+                    ]
+                },
+                {
+                    "name": "SpeakerIntent",
+                    "slots": [],
+                    "samples": [
+                        "ultra charge",
+                        "speaker",
+                        "bluetooth speaker",
+                        "ultra charge bluetooth speaker"
+                    ]
+                },
+                {
+                    "name": "EarbudsIntent",
+                    "slots": [],
+                    "samples": [
+                        "tell me about earbuds",
+                        "show me earbuds",
+                        "bluetooth earbuds",
+                        "earbuds"
+                    ]
+                },
+                {
+                    "name": "AlarmClockIntent",
+                    "slots": [],
+                    "samples": [
+                        "clock",
+                        "wake up light",
+                        "wake up light alarm clock",
+                        "alarm clock"
+                    ]
+                },
+                {
+                    "name": "SaveIntent",
+                    "slots": [],
+                    "samples": [
+                        "save the data"
+                    ]
+                },
+                {
+                    "name": "ClearIntent",
+                    "slots": [],
+                    "samples": [
+                        "clear cart"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "confirmSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "no"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yes",
+                                "synonyms": [
+                                    "yup",
+                                    "yep",
+                                    "yeah",
+                                    "sure",
+                                    "alright",
+                                    "ok"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "buySlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "samsung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "test product"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "quantitySlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "two"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "2"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
-      ],
-      "types": [
-        {
-          "values": [
-            {
-              "name": {
-                "value": "no"
-              }
-            },
-            {
-              "name": {
-                "value": "yes"
-              }
-            }
-          ],
-          "name": "confirmSlot"
-        },
-        {
-          "values": [
-            {
-              "name": {
-                "value": "samsung"
-              }
-            },
-            {
-              "name": {
-                "value": "test product"
-              }
-            }
-          ],
-          "name": "buySlot"
-        },
-        {
-          "values": [
-            {
-              "name": {
-                "value": "two"
-              }
-            },
-            {
-              "name": {
-                "value": "2"
-              }
-            }
-          ],
-          "name": "quantitySlot"
-        }
-      ]
     }
-  },
-  "version": "31"
 }
