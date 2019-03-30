@@ -9,9 +9,9 @@ This project uses Alexa voice UI and using voice commands enables the user to ma
     - Initialize ASK-CLI using below comamnd with given credentials.
         ```ask init```
         **User name-** Cgteam4@gmail.com
-        **Password-** N0id@123
-        **Access Key ID-** AKIA2IBYINGQQIXWBPT3
-        **Secret Access Key-** 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 
+        **Password-** <>
+        **Access Key ID-** <>
+        **Secret Access Key-**  <>
         **Console Login Link-** https://704492628385.signin.aws.amazon.com/console
     - Clone using ASK-CLI with following command
         ```ask clone -s <amzn1.ask.skill.e847c4ff-78a0-425c-8c24-79e0e803d587>```
