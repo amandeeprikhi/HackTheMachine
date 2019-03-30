@@ -7,12 +7,11 @@ This project uses Alexa voice UI and using voice commands enables the user to ma
 
 - Instructions to Clone and Deloy: 
     - Initialize ASK-CLI using below comamnd with given credentials.
-        ```ask init```
-        **User name-** Cgteam4@gmail.com
-        **Password-** <>
-        **Access Key ID-** <>
-        **Secret Access Key-**  <>
-        **Console Login Link-** https://704492628385.signin.aws.amazon.com/console
+        - ```ask init```
+        - **User name-** htmalexa@gmail.com
+        - **Password-** <>
+        - **Access Key ID-** <>
+        - **Secret Access Key-**  <>
     - Clone using ASK-CLI with following command
         ```ask clone -s <amzn1.ask.skill.e847c4ff-78a0-425c-8c24-79e0e803d587>```
     - Execute ```ask deploy``` to deploy the skill
